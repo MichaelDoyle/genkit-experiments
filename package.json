@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "format": "prettier . --write"
+  },
+  "name": "model-garden",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4"
+  }
+}
