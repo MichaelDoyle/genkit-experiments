@@ -1,17 +1,15 @@
-import { generate } from '@genkit-ai/ai';
-import { defineFlow } from '@genkit-ai/flow';
 import { gemini15Flash } from '@genkit-ai/googleai';
+import { z } from 'genkit';
+import { ai } from './genkit';
 
-import * as z from 'zod';
-
-export const helloWorldFlow = defineFlow(
+export const helloWorldFlow = ai.defineFlow(
   {
     name: 'helloWorldFlow',
     inputSchema: z.string(),
     outputSchema: z.string(),
   },
   async (language, flowStreamingCallback) => {
-    const response = generate({
+    const response = ai.generate({
       prompt: `Say hello in ${language}, and provide some history about a country that speaks ${language}.`,
       model: gemini15Flash,
       config: {
@@ -23,6 +21,6 @@ export const helloWorldFlow = defineFlow(
         }
       },
     });
-    return (await response).text();
+    return (await response).text;
   }
 );

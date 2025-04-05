@@ -1,8 +1,8 @@
-import { defineTool } from '@genkit-ai/ai/tool';
+import { z } from 'genkit';
 import yahooFinance from 'yahoo-finance2';
-import * as z from 'zod';
+import { ai } from './genkit';
 
-defineTool(
+ai.defineTool(
   {
     name: 'getStockPrice',
     description: 'Get the price for the given stock ticker.',

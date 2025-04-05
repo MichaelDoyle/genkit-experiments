@@ -2,9 +2,13 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "node lib/index.js",
-    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "genkit:dev": "genkit start -- tsx --watch src/index.ts",
+    "compile": "tsc",
+    "build": "pnpm build:clean && pnpm compile",
+    "build:clean": "rimraf ./lib",
     "build:watch": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-and-run": "pnpm build && node lib/index.js"
   },
   "name": "model-garden",
   "version": "1.0.0",
@@ -13,24 +17,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@genkit-ai/ai": "^0.5.2",
-    "@genkit-ai/core": "^0.5.2",
-    "@genkit-ai/dotprompt": "^0.5.2",
-    "@genkit-ai/flow": "^0.5.2",
-    "@genkit-ai/googleai": "^0.5.2",
-    "@genkit-ai/vertexai": "^0.5.2",
-    "express": "^4.19.2",
-    "genkitx-ollama": "^0.5.2",
-    "genkitx-anthropic": "^0.10.0",
-    "genkitx-cohere": "^0.10.0",
-    "genkitx-groq": "^0.10.0",
-    "genkitx-mistral": "^0.10.0",
-    "genkitx-openai": "^0.10.0",
-    "yahoo-finance2": "^2.11.3",
-    "zod": "^3.23.8"
+    "@genkit-ai/googleai": "^1.5.0",
+    "@genkit-ai/vertexai": "^1.5.0",
+    "express": "^5.1.0",
+    "genkit": "^1.5.0",
+    "genkitx-anthropic": "^0.20.0",
+    "genkitx-cohere": "^0.20.0",
+    "genkitx-groq": "^0.20.0",
+    "genkitx-mistral": "^0.20.0",
+    "genkitx-ollama": "^1.4.0",
+    "genkitx-openai": "^0.20.2",
+    "yahoo-finance2": "^2.13.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "genkit-cli": "^1.5.0",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@8.15.7+sha256.50783dd0fa303852de2dd1557cd4b9f07cb5b018154a6e76d0f40635d6cee019"
 }
