@@ -5,3 +5,4 @@ lib
 node_modules
 package-lock.json
 .genkit
+firebase-debug.log
